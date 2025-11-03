@@ -40,19 +40,7 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
-    }
-    #reset {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #00ffcc;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      color: #000;
-    }
-    #reset:hover {
-      background-color: #00ddb3;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
     }
   </style>
 </head>
@@ -60,7 +48,6 @@
   <h1>Cybersecurity Magic 8 Ball</h1>
   <div id="ball">Ask</div>
   <div id="response"></div>
-  <button id="reset">Reset</button>
 
   <script>
     const responses = [
@@ -88,7 +75,6 @@
 
     const ball = document.getElementById('ball');
     const responseDiv = document.getElementById('response');
-    const resetBtn = document.getElementById('reset');
 
     ball.addEventListener('click', () => {
       ball.classList.add('shake');
@@ -97,10 +83,6 @@
       setTimeout(() => {
         ball.classList.remove('shake');
       }, 500);
-    });
-
-    resetBtn.addEventListener('click', () => {
-      responseDiv.textContent = '';
     });
   </script>
 </body>
