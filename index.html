@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cybersecurity Magic 8 Ball</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      padding-top: 50px;
+    }
+    #ball {
+      width: 200px;
+      height: 200px;
+      background-color: black;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00ffcc;
+      transition: transform 0.2s;
+    }
+    #ball.shake {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-5px, 5px); }
+      50% { transform: translate(5px, -5px); }
+      75% { transform: translate(-5px, 5px); }
+      100% { transform: translate(0, 0); }
+    }
+    #response {
+      margin-top: 30px;
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #reset {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #00ffcc;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #000;
+    }
+    #reset:hover {
+      background-color: #00ddb3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cybersecurity Magic 8 Ball</h1>
+  <div id="ball">Ask</div>
+  <div id="response"></div>
+  <button id="reset">Reset</button>
+
+  <script>
+    const responses = [
+      "Enable multi-factor authentication.",
+      "Check for known vulnerabilities.",
+      "Update your software.",
+      "Run a full malware scan.",
+      "Review access controls.",
+      "Change your password.",
+      "Check audit logs.",
+      "Report to the security team.",
+      "Block suspicious IPs.",
+      "Isolate affected systems.",
+      "Apply latest patches.",
+      "Verify encryption settings.",
+      "Disable unused services.",
+      "Conduct a risk assessment.",
+      "Review data retention policies.",
+      "Train staff on phishing.",
+      "Use a secure VPN.",
+      "Monitor network traffic.",
+      "Check certificate validity.",
+      "Escalate to incident response."
+    ];
+
+    const ball = document.getElementById('ball');
+    const responseDiv = document.getElementById('response');
+    const resetBtn = document.getElementById('reset');
+
+    ball.addEventListener('click', () => {
+      ball.classList.add('shake');
+      const randomIndex = Math.floor(Math.random() * responses.length);
+      responseDiv.textContent = responses[randomIndex];
+      setTimeout(() => {
+        ball.classList.remove('shake');
+      }, 500);
+    });
+
+    resetBtn.addEventListener('click', () => {
+      responseDiv.textContent = '';
+    });
+  </script>
+</body>
+</html>
